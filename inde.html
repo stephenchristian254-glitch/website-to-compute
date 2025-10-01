@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalyst - Final Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans flex flex-col items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-2xl text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+            Ubah Ambisi Jadi Aksi.
+        </h1>
+        <p class="text-lg text-gray-400 mb-8">
+            Berhenti bingung harus mulai dari mana. Masukkan tujuan besar Anda, dan biarkan AI kami menyusun roadmap langkah-demi-langkah untuk Anda.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-2 mb-8">
+            <input type="text" id="goalInput" placeholder="Masukkan tujuan apa pun" class="flex-grow bg-gray-800 border border-gray-700 rounded-md p-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button id="generateButton" class="bg-blue-600 hover:bg-blue-700 rounded-md px-8 py-3 font-semibold transition-colors">
+                Buatkan Roadmap Saya!
+            </button>
+        </div>
+
+        <div id="resultArea" class="bg-gray-800 border border-gray-700 rounded-lg p-6 text-left min-h-[100px]">
+            <p id="placeholder" class="text-gray-500">Hasil akan muncul di sini...</p>
+            <div id="output" class="prose prose-invert max-w-none"></div>
+        </div>
+    </div>
+
+    <script>
+        const generateButton = document.getElementById('generateButton');
+        const placeholder = document.getElementById('placeholder');
+        const output = document.getElementById('output');
+
+        generateButton.addEventListener('click', () => {
+            placeholder.classList.add('hidden');
+            output.innerHTML = '<i>Membuat roadmap...</i>';
+
+            // Ini adalah "Mesin Tiruan" yang ada langsung di browser
+            const dummyRoadmap = `
+                <h3>Fase 1: Validasi Ide (Minggu 1)</h3>
+                <ul>
+                    <li>Langkah 1.1: Tentukan target audiens spesifik untuk ide Anda.</li>
+                    <li>Langkah 1.2: Buat survei sederhana dengan Google Forms untuk menguji minat pasar.</li>
+                </ul>
+                <h3>Fase 2: Prototipe Awal (Minggu 2-3)</h3>
+                <ul>
+                    <li>Langkah 2.1: Buat landing page sederhana yang menjelaskan produk Anda.</li>
+                    <li>Langkah 2.2: Kembangkan fitur inti paling minimal dari produk.</li>
+                </ul>
+                <p class="mt-4 text-yellow-400"><i>Catatan: Ini adalah contoh roadmap dari mesin tiruan.</i></p>
+            `;
+
+            // Mensimulasikan jeda singkat seolah-olah sedang berpikir
+            setTimeout(() => {
+                output.innerHTML = dummyRoadmap;
+            }, 500); 
+        });
+    </script>
+</body>
+</html>
